@@ -1,0 +1,6 @@
+<h2>ランキング</h2>
+  <% @rank_varieties.each.with_index(1) do |t,i| %>
+    <div class="kitakore">
+    "#{i}：#{<%= t.user.email %><%= t.title %><%= t.about %><%= t.cast %>}" 
+    </div>
+  <% end %>

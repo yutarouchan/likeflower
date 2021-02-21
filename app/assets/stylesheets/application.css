@@ -1,0 +1,129 @@
+* {
+    padding: 0;
+    margin: 0;
+  }
+  body {
+    font-family: "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "メイリオ",
+      Meiryo, "ＭＳ Ｐゴシック", sans-serif;
+  }
+  header {
+    background-color: #6246ea;
+    height: 80px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  header a {
+    color: white; 
+    text-decoration: none; 
+  }
+  header h1 {
+    color: white;
+    margin-left: 20px;
+  }
+  .header-list {
+    display: flex;
+    align-items: center;
+  }
+  header ul {
+    display: flex;
+  }
+  header li {
+    list-style: none;
+    margin-right: 40px;
+  }
+  .yutaro{
+      color: #fffffe;
+      font-size: 40px;
+      font-family: serif;
+  }
+  .box11{
+    padding: 0.5em 1em;
+    margin: 2em 0;
+    color: #5d627b;
+    background: #fffffe;
+    border-top: solid 5px #5d627b;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+    }
+    .box11 p {
+        margin: 0; 
+        padding: 0;
+    }   
+
+    .btn-circle-stitch {
+        display: inline-block;
+        text-decoration: none;
+        background: #87befd;
+        color: #FFF;
+        width: 120px;
+        height: 120px;
+        line-height: 120px;
+        border-radius: 50%;
+        text-align: center;
+        overflow: hidden;
+        box-shadow: 0px 0px 0px 5px #87befd;
+        border: dashed 1px #FFF;
+        transition: .4s;
+      }
+      
+      .btn-circle-stitch:hover {
+        background: #668ad8;
+        box-shadow: 0px 0px 0px 5px #668ad8;
+      }
+
+
+
+      .kitakore{
+          margin:2em 0;
+          position: relative;
+          padding: 0.5em 1.5em;
+          border-top: solid 2px black;
+          border-bottom: solid 2px black;
+      }
+      .kitakore:before, .kitakore:after{
+          content: '';
+          position: absolute;
+          top: -10px;
+          width: 2px;
+          height: -webkit-calc(100% + 20px);
+          height: calc(100% + 20px);
+          background-color: black;
+      }
+      .kitakore:before {left: 10px;}
+      .kitakore:after {right: 10px;}
+
+       .button {
+         display: inline-block;
+        padding: 0.5em 1em;
+        text-decoration: none;
+        background: #668ad8;/*ボタン色*/
+        color: #FFF;
+        border-bottom: solid 4px #627295;
+        border-radius: 3px;
+        }
+        .button:active {
+          /*ボタンを押したとき*/
+          -webkit-transform: translateY(4px);
+          transform: translateY(4px);/*下に動く*/
+          border-bottom: none;/*線を消す*/
+        }
+
+
+        .container {
+          display: flex;
+          display: inline-flex;
+          justify-content: space-between;
+        }
+        .container2 {
+          width: 600px;
+          margin: 5%;
+            }
+    .tekitou{
+      font-size: 30px;
+    }
+    .right{
+      position: absolute;
+      right: 3%;
+      bottom: 1%;
+    }
