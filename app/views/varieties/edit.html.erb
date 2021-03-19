@@ -1,18 +1,35 @@
 <%= form_for @variety do |f| %>
-    <%= f.label :body %>
-    <%= f.text_field :title, :size => 80 %>
-    <%= f.text_area :about, :size => "30x6" %> 
-    <%= f.select :date,
-   [["月曜日","月曜日"],
-    ["火曜日","火曜日"],
-    ["水曜日","水曜日"],
-    ["木曜日","木曜日"],
-    ["金曜日","金曜日"],
-    ["土曜日","土曜日"],
-    ["日曜日","日曜日"]], include_blank: "選択してください" %>
-    <%= f.text_field :cast, :size => "30x2" %>
-    <%= f.file_field :image %>
-    <%= f.submit "編集する" %>
+    <div class="container">
+      <div class="container2">
+          <div class="field">
+            <%= f.label :title %>
+            <%= f.text_field :title, :size => "60x3" %>
+          </div>
 
+          <div class="field">
+            <%= f.label :about %>
+            <%= f.text_field :about, :size => "60x13" %>
+          </div>
+      </div>
+      <div class="container2">
+        <div class="field">
+        <%= f.select :date,
+        [["月曜日","月曜日"],
+          ["火曜日","火曜日"],
+          ["水曜日","水曜日"],
+          ["木曜日","木曜日"],
+          ["金曜日","金曜日"],
+          ["土曜日","土曜日"],
+          ["日曜日","日曜日"]], include_blank: "選択してください" %>
+       </div>
+
+      <div class="field">
+      <%= f.label :cast %>
+      <%= f.text_field :cast, :size => "60x4" %>
+      </div>
+
+      <%= f.file_field :image %><br>
+      <%= f.submit "編集する" %><br>
+    </div>
 
   <% end %>

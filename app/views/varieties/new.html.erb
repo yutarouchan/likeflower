@@ -1,15 +1,16 @@
-<h1>showedy</h1>
+<div class="kubochan">
+<div class="teletele888">
+</div>
+</div>
 <h3>新規投稿</h3>
 <%= form_for @variety do |f| %>
   <div class="container">
     <div class="container2">
         <div class="field">
-        <%= f.label :title %>
-        <%= f.text_area :title, :size => "60x3" %>
+        <%= f.label :番組名 %>
+        <%= f.text_field :title, :size => "60x3" %>
         </div>
-        
-        
-        <div class="form-group row" id="star">
+        <div class="form-group " id="star">
         <%= f.label :rate,'総合評価', class:'col-md-3 col-form- label' %>
         <%= f.hidden_field :rate, id: :review_star %>
         </div>
@@ -27,13 +28,13 @@
 
 
         <div class="field">
-        <%= f.label :about %>
-        <%= f.text_area :about, :size => "60x13" %>
+        <%= f.label :番組内容 %>
+        <%= f.text_field :about, :size => "60x13" %>
         </div>
       </div>
-    <div class="container2">
+      <div class="container2">
       <div class="field">
-      <%= f.label :date %>
+      <%= f.label :放送日 %>
       <%= f.select :date,
       [["月曜日","月曜日放送中!!"],
         ["火曜日","火曜日放送中!!"],
@@ -53,10 +54,9 @@
         <%= f.label :image %>
         <%= f.file_field :image %>
       </div>
-      <a href="" class="btn btn--orange">PUSH</a>
-      <%= f.submit "コメントを投稿する"  %>
-      </div>
+        <%= f.submit "PUSH", class:"btn-flat-simple col-md-10" %>  
+   </div>
    </div>
 <% end %>
-<%= link_to "Variety一覧に戻る", varieties_path %>
+<%= link_to "バラエティ一覧に戻る", varieties_path %>
 

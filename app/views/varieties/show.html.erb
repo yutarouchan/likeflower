@@ -1,33 +1,38 @@
-<h1>showedy</h1>
-<h3>番組詳細</h3>
-<div class="box25">
-  <p><%= @variety.title %></p>
-  <p><%= @variety.about %></p>
-  <p><%= @variety.date %></p>
-  <p><%= @variety.cast %></p>
-  <p><%= @variety.created_at %></p>
-  <%= image_tag @variety.image_url, size: "250x200" if @variety.image? %>
 
+<h3>番組詳細</h3>
+<div class="matsutai">
+<%= image_tag @variety.image_url, size: "450x300" if @variety.image? %>
+</div>
+  <div class="card-title">
+  <%= @variety.title %>
+  </div>
+  <div class="tekitou2"><%= @variety.about %>
+  </div>
+    <div class="tekitou3">
+  <p>放送日:<%= @variety.date %></p>
+  <i class="fas fa-user-alt"></i><p><%= @variety.cast %></p>
    <% if user_signed_in? %>
    <% if current_user.already_liked?(@variety) %>
        <%= button_to variety_like_path(@variety), method: :delete do %>
         <i class="fas fa-heart"></i><%= @variety.likes.count %>
-          
+    </div>
        <% end %>
     <% else %>
        <%= button_to variety_likes_path(@variety), method: :post do %>
         <i class="far fa-heart"></i><%= @variety.likes.count %>
-         
        <% end %>
       <% end %>
     <% else %>
    <i class="far fa-heart"></i><%= @variety.likes.count %>
-    
    <% end %>
+   </div>
+
    <div class="comment-wrapper">
-    <p>コメント一覧</p>
+   <div class="toukoutitle">
+    コメント一覧
+    </div>
     <% @comments.each do |c| %>
-      <div>
+      <div class="haikei22">
         <%= c.user.email unless c.user.blank? %>
         <br>
         <%= c.content %>
@@ -37,12 +42,16 @@
  
    <% if user_signed_in? %>
      <%= form_with(model: [@variety, @comment], local: true) do |f| %>
-       <%= f.text_area :content %>
+      <div class="field">
+      <%= f.text_area :content, :size => "105x2" %>
+      </div>
+      <div class="contentbutton">
        <%= button_tag type: "submit" do %>
-         <i class="far fa-comments"></i> コメントする
+         <i class="far fa-comments"></i> コメントする   
+         </div>
        <% end %>
      <% end %>
    <% end %>
-</div>
+
 
 <%= link_to "variety一覧に戻る", varieties_path %>

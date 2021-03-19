@@ -1,25 +1,29 @@
-<h2>Log in</h2>
+<div class="maipagei">
+<i>LOG IN</i>
+</div>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
+  
+  <div class="cp_iptxt">
+    <%= f.text_field :email, autofocus: true, autocomplete: "email", class:"ef", placeholder:"" %>
+    <label>E-mail</label>
+	  <span class="focus_line"></span>
+    </div>
+    
+  <div class="cp_iptxt">
     <%= f.label :password %><br />
     <%= f.password_field :password, autocomplete: "current-password" %>
   </div>
 
   <% if devise_mapping.rememberable? %>
-    <div class="field">
+    <div class="cp_iptxt">
       <%= f.check_box :remember_me %>
       <%= f.label :remember_me %>
     </div>
   <% end %>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
+  <div class="buttonyoko">
+  <%= f.submit "log in", class:"btn-flat-logo col-md-2" %> 
   </div>
 <% end %>
 

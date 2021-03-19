@@ -1,13 +1,21 @@
 <%= stylesheet_link_tag 'show', :media => "all" %>
 
-<h1>showedy</h1>
-
-<h3>コメント一覧</h3>
-<%= link_to "新規投稿へ", new_variety_path %>
+       <section id="index-block">
+    <div class="ichiran">
+      投稿一覧
+    </div>
+      </section>
   <% @varieties.each do |t| %>
-    <div class="kitakore">
+    <div class="card2" style="width: 18rem;">
+           <% if t.image? %>
+           <img src= "<%= t.image_url %>" size: "278x200" class="card-img-top" >
+          <% else %>
+          <%= image_tag "noimages.jpg", class:"card-img-top" %>
+          <% end %>
+         <div class="card-title">  
          <%= t.title %>
-    　　  <a href="/users/<%= t.user.id %>"><%= t.user.name %></a>      
+         </div>
+          <a href="/users/<%= t.user.id %>"><%= t.user.name %></a><br>    
           <div id="star-rate-<%= t.id %>"></div>
           <script>
           $('#star-rate-<%= t.id %>').raty({
@@ -20,11 +28,8 @@
           score: <%= t.rate%>,
           });
           </script> 
-          <div class= "tekitou">
-          <%= t.about %>
-          </div>
           <%= t.date %><br>
-          <%= t.cast %><br>
+          <i class="fas fa-user-alt"></i>キャスト:<%= t.cast %><br>
       <% if user_signed_in? %>
                 <% if current_user.already_liked?(t) %>
                     <%= link_to variety_like_path(id: t.id, variety_id: t.id), method: :delete do %>
@@ -39,23 +44,22 @@
           <p>いいねの数 = </p><%= t.likes.count %>
           <i class="far fa-heart"></i>
       <% end %>
-          <%= t.created_at %>
-          <%= image_tag t.image_url, size: "250x200" if t.image? %>
+          <%= t.created_at %></br>
+          
          <div class="right">
-              <%= link_to "詳細へ", variety_path(t.id) , class: "button"%>
+              <%= link_to "詳細へ", variety_path(t.id) %>
             <% if user_signed_in? && current_user.id == t.user_id %>  
-              <%= link_to "編集する", edit_variety_path(t.id), class: "button"%>
-              <%= link_to "削除する", variety_path(t.id), method: :delete, class: "button"%>
+              <%= link_to "編集する", edit_variety_path(t.id) %>
             <% end %> 
-          </div>
-     </div>
+         </div>
+    </div>
   <% end %>
 
 
 
 
 <% if user_signed_in? %>
-      <%= button_to 'ログアウト', destroy_user_session_path, method: :delete %>
+     
        <% else %>
       <%= link_to "新規登録", new_user_registration_path %>
       <%= link_to "ログイン", new_user_session_path %>

@@ -1,6 +1,21 @@
+
+<div class="hyoushou">
+</div>
 <h2>ランキング</h2>
   <% @rank_varieties.each.with_index(1) do |t,i| %>
-    <div class="kitakore">
-    "#{i}：#{<%= t.user.email %><%= t.title %><%= t.about %><%= t.cast %>}" 
+    <div class="card2" style="width: 18rem;">
+    <i class="fas fa-crown"></i>第<%= i %>位
+    <% if t.image? %>
+    <img src= "<%= t.image_url %>" size: "278x200" class="card-img-top" >
+   <% else %>
+   <%= image_tag "noimages.jpg", class:"card-img-top" %>
+   <% end %>
+    <div class="card-title">  
+     <%= t.title %>
+    </div>
+    <%= t.about %>
+     <a href="/users/<%= t.user.id %>"><%= t.user.name %></a><br>    
+     <%= t.date %><br>
+     <i class="fas fa-user-alt"></i>キャスト:<%= t.cast %><br>
     </div>
   <% end %>
